@@ -6,6 +6,8 @@
 
 - 执行计划：
 
+其中：cost=2，rows=437,Predicate Information(谓词信息）中有一次索引access，一次全表搜索filter。
+
 ![tu](./1.1.png)
 
 ![tu](./1.11.png)
@@ -17,6 +19,8 @@
 ![tu](./3.png)
 
 - 执行计划：
+
+其中：cost=5，rows=106,Predicate Information(谓词信息）中有一次索引access，两次全表搜索filter。
 
 ![tu](./2.2.png)
 
