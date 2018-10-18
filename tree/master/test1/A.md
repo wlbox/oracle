@@ -191,4 +191,5 @@ Column Projection Information (identified by operation id):
 -------------------------------------------------------------------------------
 ```
 - 对自定义查询语句进行分析：
-通过对自定义的查询语句得执行计划来看，其中：cost=7，rows=106,Predicate Information(谓词信息）中有一次索引access，一次全表搜索filter。
+
+通过对自定义的查询语句的执行计划来看，其中：cost=7，rows=106,Predicate Information(谓词信息）中有一次索引access，一次全表搜索filter。
