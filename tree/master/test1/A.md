@@ -110,7 +110,7 @@ group by department_name,location_id;
 
 ![tu](./5.png)
 
--执行计划：
+- 执行计划：
 ```sql
 GENERAL INFORMATION SECTION
 -------------------------------------------------------------------------------
@@ -190,3 +190,4 @@ Column Projection Information (identified by operation id):
 
 -------------------------------------------------------------------------------
 ```
+- 对自定义查询语句进行分析：
