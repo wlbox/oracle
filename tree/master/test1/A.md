@@ -32,4 +32,51 @@
 
 ![tu](./2.png)
 
-![tu](./5.png)
+···
+GENERAL INFORMATION SECTION
+-------------------------------------------------------------------------------
+Tuning Task Name   : staName35891
+Tuning Task Owner  : HR
+Tuning Task ID     : 11
+Workload Type      : Single SQL Statement
+Execution Count    : 1
+Current Execution  : EXEC_1
+Execution Type     : TUNE SQL
+Scope              : COMPREHENSIVE
+Time Limit(seconds): 1800
+Completion Status  : COMPLETED
+Started at         : 10/16/2018 11:27:51
+Completed at       : 10/16/2018 11:27:52
+
+-------------------------------------------------------------------------------
+Schema Name   : HR
+Container Name: PDBORCL
+SQL ID        : gv51ddmnrkrj6
+SQL Text      : SELECT d.department_name，count(e.job_id)as "部门总人数",
+                avg(e.salary)as "平均工资"
+                from hr.departments d,hr.employees e
+                where d.department_id = e.department_id
+                and d.department_name in ('IT','Sales')
+                GROUP BY department_name
+
+-------------------------------------------------------------------------------
+FINDINGS SECTION (1 finding)
+-------------------------------------------------------------------------------
+
+1- Index Finding (see explain plans section below)
+--------------------------------------------------
+  通过创建一个或多个索引可以改进此语句的执行计划。
+
+  Recommendation (estimated benefit: 59.99%)
+  ------------------------------------------
+  - 考虑运行可以改进物理方案设计的访问指导或者创建推荐的索引。
+    create index HR.IDX$$_000B0001 on HR.DEPARTMENTS("DEPARTMENT_NAME","DEPARTM
+    ENT_ID");
+
+  Rationale
+  ---------
+    创建推荐的索引可以显著地改进此语句的执行计划。但是, 使用典型的 SQL 工作量运行 "访问指导"
+    可能比单个语句更可取。通过这种方法可以获得全面的索引建议案, 包括计算索引维护的开销和附加的空间消耗。
+
+-------------------------------------------------------------------------------
+···
