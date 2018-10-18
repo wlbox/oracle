@@ -192,4 +192,4 @@ Column Projection Information (identified by operation id):
 ```
 - 对自定义查询语句进行分析：
 
-通过对自定义的查询语句的执行计划来看，其中：cost=7，rows=106,Predicate Information(谓词信息）中有一次索引access，一次全表搜索filter。
+本查询语句通过对departments d,employees e两张表的搜索查询来查询所有部门的名字，location_id，员工数量和工资平均值，而且还是用了group by子句来进行分组查询；同时，通过对自定义的查询语句的执行计划来看，其中：cost=7，rows=106,Predicate Information(谓词信息）中有一次索引access，一次全表搜索filter。而且通过优化指导来看，matlab没有对其提供相关的建议。
