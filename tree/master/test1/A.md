@@ -21,7 +21,7 @@ GROUP BY department_name;
 ![tu](./1.11.png)
 
 # 查询2：
-```
+```sql
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
 FROM hr.departments d，hr.employees e
@@ -48,7 +48,7 @@ HAVING d.department_name in ('IT'，'Sales');
 
 ![tu](./2.png)
 
-```
+```sql
 GENERAL INFORMATION SECTION
 -------------------------------------------------------------------------------
 Tuning Task Name   : staName35891
