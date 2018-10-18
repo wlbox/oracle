@@ -97,6 +97,7 @@ FINDINGS SECTION (1 finding)
 -------------------------------------------------------------------------------
 ```
 #自定义查询语句
+
 查询所有部门的名字，location_id，员工数量和工资平均值
  ```sql
  Select department_name,location_id,count(e.job_id) as "部门总人数",avg(e.salary) as "平均工资" 
