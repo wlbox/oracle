@@ -1,4 +1,12 @@
 # 查询1：
+```sql
+SELECT d.department_name，count(e.job_id)as "部门总人数"，
+avg(e.salary)as "平均工资"
+from hr.departments d，hr.employees e
+where d.department_id = e.department_id
+and d.department_name in ('IT'，'Sales')
+GROUP BY department_name;
+```
 
 - 查询结果：
 
@@ -13,6 +21,14 @@
 ![tu](./1.11.png)
 
 # 查询2：
+```
+SELECT d.department_name，count(e.job_id)as "部门总人数"，
+avg(e.salary)as "平均工资"
+FROM hr.departments d，hr.employees e
+WHERE d.department_id = e.department_id
+GROUP BY department_name
+HAVING d.department_name in ('IT'，'Sales');
+```
 
 - 查询结果：
 
@@ -28,7 +44,7 @@
 
 从分析两个SQL语句可以看，查询1是先过滤后汇总（where子句），参与汇总与计算的数据量少。而查询2是先汇总后过滤（having子句），参与汇总与计算的数据量多。且通过对以上两个查询的执行计划进行比较，查询1中cost=2，查询2中cost=5，二者相比，查询1中的cost更小，即：它的成本更低，因为成本越低越好，所以查询1的QL语句是最优的。
 
-- 查询1进行优化指导：
+- 对查询1进行优化指导：
 
 ![tu](./2.png)
 
