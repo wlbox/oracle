@@ -106,3 +106,87 @@ where d.department_id=e.department_id
 group by department_name,location_id;
 --------------------- 
 ```
+- 查询结果：
+
+![tu](./5.png)
+
+-执行计划：
+```sql
+GENERAL INFORMATION SECTION
+-------------------------------------------------------------------------------
+Tuning Task Name   : staName15914
+Tuning Task Owner  : HR
+Tuning Task ID     : 442
+Workload Type      : Single SQL Statement
+Execution Count    : 1
+Current Execution  : EXEC_433
+Execution Type     : TUNE SQL
+Scope              : COMPREHENSIVE
+Time Limit(seconds): 1800
+Completion Status  : COMPLETED
+Started at         : 10/18/2018 11:38:07
+Completed at       : 10/18/2018 11:38:08
+
+-------------------------------------------------------------------------------
+Schema Name   : HR
+Container Name: PDBORCL
+SQL ID        : a99hwdd63sg47
+SQL Text      : Select department_name,location_id,count(e.job_id) as
+                "部门总人数",avg(e.salary) as "平均工资" 
+                from departments d,employees e
+                where d.department_id=e.department_id 
+                group by department_name,location_id
+
+-------------------------------------------------------------------------------
+There are no recommendations to improve the statement.
+
+-------------------------------------------------------------------------------
+EXPLAIN PLANS SECTION
+-------------------------------------------------------------------------------
+
+1- Original
+-----------
+Plan hash value: 1139150879
+
+ 
+---------------------------------------------------------------------------------------------
+| Id  | Operation                     | Name        | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT              |             |    27 |   702 |     7  (29)| 00:00:01 |
+|   1 |  HASH GROUP BY                |             |    27 |   702 |     7  (29)| 00:00:01 |
+|   2 |   MERGE JOIN                  |             |   106 |  2756 |     6  (17)| 00:00:01 |
+|   3 |    TABLE ACCESS BY INDEX ROWID| DEPARTMENTS |    27 |   513 |     2   (0)| 00:00:01 |
+|   4 |     INDEX FULL SCAN           | DEPT_ID_PK  |    27 |       |     1   (0)| 00:00:01 |
+|*  5 |    SORT JOIN                  |             |   107 |   749 |     4  (25)| 00:00:01 |
+|   6 |     TABLE ACCESS FULL         | EMPLOYEES   |   107 |   749 |     3   (0)| 00:00:01 |
+---------------------------------------------------------------------------------------------
+ 
+Query Block Name / Object Alias (identified by operation id):
+-------------------------------------------------------------
+ 
+   1 - SEL$1
+   3 - SEL$1 / D@SEL$1
+   4 - SEL$1 / D@SEL$1
+   6 - SEL$1 / E@SEL$1
+ 
+Predicate Information (identified by operation id):
+---------------------------------------------------
+ 
+   5 - access("D"."DEPARTMENT_ID"="E"."DEPARTMENT_ID")
+       filter("D"."DEPARTMENT_ID"="E"."DEPARTMENT_ID")
+ 
+Column Projection Information (identified by operation id):
+-----------------------------------------------------------
+ 
+   1 - (#keys=2) "DEPARTMENT_NAME"[VARCHAR2,30], "LOCATION_ID"[NUMBER,22], 
+       COUNT("E"."SALARY")[22], COUNT(*)[22], SUM("E"."SALARY")[22]
+   2 - (#keys=0) "LOCATION_ID"[NUMBER,22], "DEPARTMENT_NAME"[VARCHAR2,30], 
+       "E"."SALARY"[NUMBER,22]
+   3 - "D"."DEPARTMENT_ID"[NUMBER,22], "DEPARTMENT_NAME"[VARCHAR2,30], 
+       "LOCATION_ID"[NUMBER,22]
+   4 - "D".ROWID[ROWID,10], "D"."DEPARTMENT_ID"[NUMBER,22]
+   5 - (#keys=1) "E"."DEPARTMENT_ID"[NUMBER,22], "E"."SALARY"[NUMBER,22]
+   6 - "E"."SALARY"[NUMBER,22], "E"."DEPARTMENT_ID"[NUMBER,22]
+
+-------------------------------------------------------------------------------
+```
