@@ -34,7 +34,7 @@
 ![tu](./1-52.png)
 
 
-- jw_user给我授权读写操作后，修改jw_user创建的表，将其空间限额改成100M。
+- jw_user给我授权读写操作后，修改jw_user创建的表，将其name的字符长度从50byte改成100byte。
 
 ![tu](./1-53.png)
 
