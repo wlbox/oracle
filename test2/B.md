@@ -3,7 +3,11 @@
 
 ![tu](./1-1.png)
 
-- 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
+- 第2步：新用户new_userwl连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 
-！[tu](./1-2.png)
+![tu](./1-2.png)
+
+- 第3步：用户hr连接到pdborcl，查询new_userwl授予它的视图myview：
+
+![tu](./1-2.png)
 
