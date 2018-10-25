@@ -1,4 +1,7 @@
 # 实验步骤:
+
+# Oracle地址：202.115.82.8 用户名：system,hr,new_userwl  密码123  数据库名称：pdborcl  端口号：1521
+
 - 第1步:以system登录到pdborcl，创建角色con_res_viewwl和用户new_userwl，并授权和分配空间(其中：授权new_userwl用户访问users表空间，空间限额是50M)：
 
 ![tu](./1-1.png)
