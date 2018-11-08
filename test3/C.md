@@ -21,7 +21,7 @@
 
 ![tu](./tupian/b.png)
 
-3、建立order表并按订单日期进行分区：
+3、建立orders表并按订单日期进行分区：
 
 ![tu](./tupian/c.png)
 
