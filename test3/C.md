@@ -25,7 +25,7 @@
 
 ![tu](./tupian/c.png)
 
-``sql
+```sql
 SQL> CREATE TABLE orders 
 (
  order_id NUMBER(10, 0) NOT NULL 
