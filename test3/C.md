@@ -212,7 +212,7 @@ select
     order_details.order_id as BID,
     ORDER_DETAILS.PRODUCT_ID as product_idfrom
     ORDERSINNER JOIN ORDER_DETAILS ON (orders.order_id=order_details.order_id);
-    ```
+ ```
 - 执行结果：
 
 ![tu](./tupian/e1.png)
