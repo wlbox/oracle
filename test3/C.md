@@ -176,6 +176,7 @@ end;
 ![tu](./tupian/b1.png)
 
    通过修改m值以及时间达到平均插入到不同的分区里面。总共的数据为14997条，其中每一分区含有4999条记录。
+
 7、向order_details表中插入数据：
 - 代码：
 ```sql
@@ -201,3 +202,17 @@ end;
 ![tu](./tupian/d1.png)
 
   通过对order_id的值进行改变，实现关联order表中的外键，并分配到各个分区里面，向order_details表中共插入14997条数据。
+
+8、对表进行联合查询：
+- 代码：
+```sql
+select 
+    orders.order_id as AID,
+    orders.customer_name as customer_name,
+    order_details.order_id as BID,
+    ORDER_DETAILS.PRODUCT_ID as product_idfrom
+    ORDERSINNER JOIN ORDER_DETAILS ON (orders.order_id=order_details.order_id);
+    ```
+- 执行结果：
+
+![tu](./tupian/e1.png)
