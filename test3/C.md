@@ -149,3 +149,21 @@ NOCOMPRESS NO INMEMORY
 5、建立好订单表(orders)与订单详表(order_details)的sqldeveloper中的截图：
 
 ![tu](./tupian/g.png)
+
+6、向orders表中插入数据：
+
+- 代码：
+```sql
+declare 
+  m integer; begin 
+--输出开始时间 
+  dbms_output.put_line('start:'||sysdate); 
+  m:=9998;
+--循环插入的数据量 
+  for i in 1..4999 loop 
+   m:=m+1; insert into ORDERS (ORDER_ID,CUSTOMER_NAME,CUSTOMER_TEL,ORDER_DATE,EMPLOYEE_ID,DISCOUNT,TRADE_RECEIVABLE) values (m,'user'||m,'10000',to_date('2017-05-04 00:00:00', 'SYYYY-MM-DD HH24:MI:SS'),001,15,29);
+    commit; 
+  end loop; --输出结束时间 
+  dbms_output.put_line('end:'||sysdate); 
+end;
+```
