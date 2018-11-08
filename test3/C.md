@@ -167,3 +167,12 @@ declare
   dbms_output.put_line('end:'||sysdate); 
 end;
 ```
+- 执行结果：
+
+![tu](./tupian/a1.png)
+
+- 查询orders表插入的总共记录数：
+
+![tu](./tupian/b1.png)
+
+- 通过修改m值以及时间达到平均插入到不同的分区里面。总共的数据为14997条，其中每一分区含有4999条记录。
