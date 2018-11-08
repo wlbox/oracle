@@ -77,13 +77,13 @@ TABLESPACE USERS03
 
 ![tu](./tupian/d.png)
 
-- 解决办法设置主键：
+- 解决办法:设置主键：
 
 ![tu](./tupian/e.png)
 
 4、建立order_details表并按订单日期进行分区：
 
-![tu](./tupian/e.png)
+![tu](./tupian/f.png)
 
 ```sql
 CREATE TABLE order_details 
