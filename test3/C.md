@@ -70,7 +70,9 @@ TABLESPACE USERS03
 );
 ```
 - 创建表 order_details 出现错误时的原因：
+
 此列列表的唯一关键字和主键不匹配的错误
+
 - 具体原因：
 
 ![tu](./tupian/d.png)
