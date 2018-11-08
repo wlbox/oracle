@@ -219,7 +219,22 @@ select
 
 9、分析语句的执行计划：
 
+- 执行计划代码：
+```sql
+EXPLAIN plan for
+select 
+    orders.order_id as AID,
+    orders.customer_name as customer_name,
+    order_details.order_id as BID,
+    ORDER_DETAILS.PRODUCT_ID as product_id
+from
+    ORDERS
+INNER JOIN ORDER_DETAILS ON (orders.order_id=order_details.order_id);
 
+select * from table(dbms_xplan.display());
+```
+- 执行计划结果:
+![tu](./tupian/f1.png)
 10、分区与不分区的对比：
 
 分区：就是把一张表的数据分成N多个区块，这些区块可以在同一个磁盘上，也可以在不同的磁盘上。
