@@ -234,7 +234,9 @@ INNER JOIN ORDER_DETAILS ON (orders.order_id=order_details.order_id);
 select * from table(dbms_xplan.display());
 ```
 - 执行计划结果:
+
 ![tu](./tupian/f1.png)
+
 10、分区与不分区的对比：
 
 分区：就是把一张表的数据分成N多个区块，这些区块可以在同一个磁盘上，也可以在不同的磁盘上。
