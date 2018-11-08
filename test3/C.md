@@ -146,4 +146,6 @@ BUFFER_POOL DEFAULT
 NOCOMPRESS NO INMEMORY  
 );
 ```
+5、建立好订单表(orders)与订单详表(order_details)的sqldeveloper中的截图：
 
+![tu](./tupian/g.png)
