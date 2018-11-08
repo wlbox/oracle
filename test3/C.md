@@ -17,3 +17,12 @@
 
 ![tu](./tupian/a.png)
 
+2、用自己的账号new_userwl登录：
+
+![tu](./tupian/b.png)
+
+3、建立order表并按订单日期进行分区：
+
+![tu](./tupian/c.png)
+
+4、
