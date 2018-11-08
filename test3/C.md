@@ -175,4 +175,29 @@ end;
 
 ![tu](./tupian/b1.png)
 
-- 通过修改m值以及时间达到平均插入到不同的分区里面。总共的数据为14997条，其中每一分区含有4999条记录。
+   通过修改m值以及时间达到平均插入到不同的分区里面。总共的数据为14997条，其中每一分区含有4999条记录。
+7、向order_details表中插入数据：
+- 代码：
+```sql
+declare 
+  m integer; begin 
+--输出开始时间 
+  dbms_output.put_line('start:'||sysdate); 
+  m:=0;
+--循环插入的数据量 
+  for i in 1..4999 loop 
+   m:=m+1; insert into ORDER_DETAILS (ID,ORDER_ID,PRODUCT_ID,PRODUCT_NUM,PRODUCT_PRICE) values (m,m,'product'||m,15,29);
+    commit; 
+  end loop; --输出结束时间 
+  dbms_output.put_line('end:'||sysdate); 
+end;
+```
+- 执行结果：
+
+![tu](./tupian/c1.png)
+
+- 查询order_details表插入的总共记录数：
+
+![tu](./tupian/d1.png)
+
+  通过对order_id的值进行改变，实现关联order表中的外键，并分配到各个分区里面，向order_details表中共插入14997条数据。
