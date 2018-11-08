@@ -15,5 +15,5 @@
 ## 实验步骤：
 1、使用system用户给你自己的账号分配上述分区的使用权限：
 
-[!tu](./tupian/a.png)
+![tu](./tupian/a.png)
 
