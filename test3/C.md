@@ -237,6 +237,18 @@ select * from table(dbms_xplan.display());
 
 ![tu](./tupian/f1.png)
 
+- 执行计划结论：
+
+由执行结果可知：最先执行的是TABLE ACCESS FULL，意思为对order_details表进行全表扫描。
+
+然后其次执行的是PARTITION REFERENCE ALL，对分区进行引用。
+
+然后对order_id进行索引唯一扫描，因为为order_details的外键。
+
+又因为使用了join，所以又进行了NESTED LOOPS连接查询。
+
+再对orders表进行TABLE ACCESS BY GLOBAL INDEX ROWID，即rowid与索引的扫描，找出符合条件的元素。最后将数据查出。
+
 10、分区与不分区的对比：
 
 分区：就是把一张表的数据分成N多个区块，这些区块可以在同一个磁盘上，也可以在不同的磁盘上。
